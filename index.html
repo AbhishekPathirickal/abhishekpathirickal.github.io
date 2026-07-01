@@ -4,279 +4,548 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolio</title>
+        <title>Abhishek P T - Portfolio</title>
         <link rel="shortcut icon" type="image/png" href="ic.png">
         <link rel="stylesheet" href='./files/style.css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://kit.fontawesome.com/91bedd003a.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     </head>
     <body>
         
         <header class="header">
+            <a href="index.html" class="logo">
+                <div class="logo-container">
+                    <span class="logo-icon">
+                        <i class='bx bx-trending-up'></i>
+                    </span>
+                    <div class="logo-text">
+                        <span class="logo-name">Abhishek P T</span>
+                        <span class="logo-tagline">Policy & Data Insights</span>
+                    </div>
+                </div>
+            </a>
             
-            <a href="#" class="logo">Portfolio</a>
             <nav class="navbar" id="myLinks">
-                <a href="#Home" style="--i:1" class="active" >Home</a>
-                <a href="#About" style="--i:2">About</a>
-                <a href="#Skills" style="--i:3">Skills</a>
-                <a href="#Projects" style="--i:4">Projects</a>
-                <a href="#Contact" style="--i:5">Contact</a>
+                <div class="nav-indicator"></div>
+                <a href="index.html" style="--i:1" class="nav-link active" data-page="home">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Home</span>
+                </a>
+                <a href="about.html" style="--i:2" class="nav-link" data-page="about">
+                    <i class='bx bx-user'></i>
+                    <span>About</span>
+                </a>
+                <a href="skills.html" style="--i:3" class="nav-link" data-page="skills">
+                    <i class='bx bx-code-alt'></i>
+                    <span>Skills</span>
+                </a>
+                <a href="projects.html" style="--i:4" class="nav-link" data-page="projects">
+                    <i class='bx bx-briefcase-alt'></i>
+                    <span>Projects</span>
+                </a>
+                <a href="contact.html" style="--i:5" class="nav-link" data-page="contact">
+                    <i class='bx bx-envelope'></i>
+                    <span>Contact</span>
+                </a>
             </nav>
+            
+            <div class="header-actions">
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class='bx bx-moon'></i>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </header>
 
+        <div class="parallax-bg"></div>
 
-        <section class="home" id="Home">
-            <div class="home-content">
-                
-                <h3>Hello, It's Me</h3>
-                <h1>Abhishek P T</h1>
-                <h4 style="--i:6">A curious guy, who is enthusiastic<br>
-                   about <span class="text"></span></h4>
-                
-                <div class="img">
-                     <img src="./img/abhishek.png" class="responsive">
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero" id="Home">
+            <div class="hero-background">
+                <div class="hero-particles"></div>
+                <div class="hero-gradient-orb orb-1"></div>
+                <div class="hero-gradient-orb orb-2"></div>
+                <div class="hero-gradient-orb orb-3"></div>
+            </div>
+
+            <div class="hero-container">
+                <div class="hero-content">
+                    <!-- Introduction Badge -->
+                    <div class="hero-badge">
+                        <span class="badge-icon">👋</span>
+                        <span class="badge-text">Welcome to my world</span>
+                    </div>
+
+                    <!-- Main Headline with Story -->
+                    <h1 class="hero-title">
+                        <span class="title-line title-line-1">Transforming</span>
+                        <span class="title-line title-line-2">
+                            <span class="gradient-text">Data</span> into
+                        </span>
+                        <span class="title-line title-line-3">
+                            <span class="gradient-text">Policy Impact</span>
+                        </span>
+                    </h1>
+
+                    <!-- Story Subtitle -->
+                    <div class="hero-story">
+                        <p class="story-text">
+                            I'm <strong>Abhishek P T</strong>, a Development Economics researcher at IIT Madras. 
+                            I bridge the gap between complex data and actionable policy insights, 
+                            turning numbers into narratives that drive social change.
+                        </p>
+                    </div>
+
+                    <!-- Rotating Skills with Typed.js -->
+                    <div class="hero-expertise">
+                        <span class="expertise-label">Expertise in</span>
+                        <span class="expertise-dynamic text"></span>
+                    </div>
+
+                    <!-- Stats Row -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class='bx bx-code-alt'></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number" data-target="3">0</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class='bx bx-line-chart'></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number" data-target="10">0</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class='bx bx-trophy'></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number" data-target="5">0</div>
+                                <div class="stat-label">Publications</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-actions">
+                        <a href="#projects" class="hero-btn btn-primary">
+                            <span>Explore My Work</span>
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                        <a href="./pdf/Abhishek P T_Research.pdf" 
+                           class="hero-btn btn-secondary resume-btn" target="_blank">
+                            <i class='bx bx-download'></i>
+                            <span>Resume</span>
+                            <div class="resume-preview">
+                                <div class="resume-thumbnail">
+                                    <div class="resume-page">
+                                        <div class="resume-header">
+                                            <div class="resume-name">ABHISHEK P T</div>
+                                            <div class="resume-line"></div>
+                                        </div>
+                                        <div class="resume-content">
+                                            <div class="resume-text"></div>
+                                            <div class="resume-text"></div>
+                                            <div class="resume-text short"></div>
+                                            <div class="resume-section"></div>
+                                            <div class="resume-text"></div>
+                                            <div class="resume-text"></div>
+                                            <div class="resume-text short"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="preview-label">Click to view full resume</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="hero-social">
+                        <span class="social-label">Connect with me</span>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/abhishekpathirickal/" target="_blank" class="social-link">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>               
+                            <a href="https://github.com/AbhishekPathirickal" target="_blank" class="social-link">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="home-sci">
-                    <a href="https://www.linkedin.com/in/abhishekpathirickal/"style="--i:7" target="_blank"><i class='bx bxl-linkedin'></i></a>               
-                
-                    <a href="https://github.com/AbhishekPathirickal"style="--i:10" target="_blank"><i class='bx bxl-github'></i></a>
+                <!-- Hero Image/Visual -->
+                <div class="hero-visual">
+                    <div class="visual-wrapper">
+                        <div class="visual-glow"></div>
+                        <div class="visual-frame">
+                            <img src="./img/Abhishekmain.png" alt="Abhishek P T" class="hero-image">
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <i class='bx bxs-data'></i>
+                            <span>R • Stata • Python</span>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class='bx bxs-brain'></i>
+                            <span>Econometrics</span>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class='bx bxs-bar-chart-alt-2'></i>
+                            <span>Policy Research</span>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1LCqA05yalUDQ9WlOeLf8VyfmFBvVGdVf/view?usp=sharing" style="--i:11" class="btn-box" target="_blank">Download Resume</a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-icon">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text">Scroll to explore</span>
             </div>
         </section>
 
+        <!-- Smooth Transition Wave -->
+        <div class="section-divider">
+            <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+            </svg>
+        </div>
 
-        <section>
-            <div class="about" id="About">
-                <div class="about-img">
-                    <img src="./img/Abhishek about.jpg" class="abt-res">
+        <!-- ========== EXPERTISE SHOWCASE SECTION ========== -->
+        <section class="expertise-showcase" id="expertise">
+            <div class="expertise-background">
+                <div class="expertise-grid-lines"></div>
+                <div class="parallax-orbs">
+                    <div class="orb orb-1"></div>
+                    <div class="orb orb-2"></div>
+                    <div class="orb orb-3"></div>
                 </div>
-                <div class="about-text">
-                    <h2>About <span>Me</span></h2>
-                    <p>A curious learner pursuing an Integrated MA in Developmental Studies at IIT Madras. 
-                        Passionate about policy research, data analysis, and social impact. 
-                        Committed quizzer and organizer, nurturing a quizzing culture. 
-                        Proficient in R, Stata, and data analysis tools. Strong interpersonal skills honed through organizing academic conferences and team management. 
-                        Driven to leverage knowledge for sustainable development.<br>
-                        <br>
-                        <a href="https://drive.google.com/file/d/1LCqA05yalUDQ9WlOeLf8VyfmFBvVGdVf/view?usp=sharing" style="--i:11" class="abtbtn-box" target="_blank">Download Resume</a>                        
-                        <a href="https://drive.google.com/drive/folders/1ulxSB7B5ZXT_JlI9tSe-fEaNdQNjNDdE?usp=drive_link" style="--i:11" class="abtbtn-box" target="_blank" margin-left: 15px;>My Designs</a>
+            </div>
+
+            <div class="expertise-container">
+                <!-- Section Header -->
+                <div class="expertise-header">
+                    <span class="section-label">Areas of Impact</span>
+                    <h2 class="section-heading">
+                        Where <span class="gradient-text animated-fill" data-text="Economics">Economics</span> Meets 
+                        <span class="gradient-text animated-fill" data-text="Technology">Technology</span>
+                    </h2>
+                    <p class="section-description">
+                        Bridging the gap between complex economic models and real-world policy solutions 
+                        through sophisticated data analysis and technological innovation.
                     </p>
                 </div>
+
+                <!-- Horizontal Parallax Cards -->
+                <div class="expertise-track">
+                    <!-- Card 1: Economics & Welfare -->
+                    <div class="expertise-card card-economics" data-parallax-speed="1">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class='bx bx-line-chart-down'></i>
+                            </div>
+                            <div class="card-header">
+                                <h3>Economics & Welfare</h3>
+                                <span class="card-badge">Core Focus</span>
+                            </div>
+                            <p class="card-description">
+                                Analyzing economic indicators, poverty metrics, and welfare outcomes 
+                                to inform evidence-based policy interventions that reduce inequality.
+                            </p>
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <span class="stat-icon">∑</span>
+                                    <span class="stat-text">Aggregate Analysis</span>
+                                </div>
+                                <div class="card-stat">
+                                    <span class="stat-icon">β</span>
+                                    <span class="stat-text">Regression Models</span>
+                                </div>
+                            </div>
+                            <div class="card-tech">
+                                <span class="tech-tag">Stata</span>
+                                <span class="tech-tag">R</span>
+                                <span class="tech-tag">Panel Data</span>
+                            </div>
+                        </div>
+                        <div class="card-decoration">
+                            <div class="deco-circle"></div>
+                            <div class="deco-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Data Science & Modeling -->
+                    <div class="expertise-card card-modeling" data-parallax-speed="1.2">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class='bx bx-brain'></i>
+                            </div>
+                            <div class="card-header">
+                                <h3>Data Science & Modeling</h3>
+                                <span class="card-badge">Innovation</span>
+                            </div>
+                            <p class="card-description">
+                                Building predictive models and statistical frameworks that transform 
+                                raw data into actionable insights for development economics research.
+                            </p>
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <span class="stat-icon">∫</span>
+                                    <span class="stat-text">Time Series</span>
+                                </div>
+                                <div class="card-stat">
+                                    <span class="stat-icon">∂</span>
+                                    <span class="stat-text">Optimization</span>
+                                </div>
+                            </div>
+                            <div class="card-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Econometrics</span>
+                            </div>
+                        </div>
+                        <div class="card-decoration">
+                            <div class="deco-circle"></div>
+                            <div class="deco-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Technology & Innovation -->
+                    <div class="expertise-card card-technology" data-parallax-speed="1.4">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class='bx bx-chip'></i>
+                            </div>
+                            <div class="card-header">
+                                <h3>Technology & Innovation</h3>
+                                <span class="card-badge">Digital</span>
+                            </div>
+                            <p class="card-description">
+                                Leveraging cutting-edge tools and computational methods to solve 
+                                complex policy challenges and automate analytical workflows.
+                            </p>
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <span class="stat-icon">∇</span>
+                                    <span class="stat-text">Algorithms</span>
+                                </div>
+                                <div class="card-stat">
+                                    <span class="stat-icon">∏</span>
+                                    <span class="stat-text">Pipelines</span>
+                                </div>
+                            </div>
+                            <div class="card-tech">
+                                <span class="tech-tag">Git</span>
+                                <span class="tech-tag">APIs</span>
+                                <span class="tech-tag">Automation</span>
+                            </div>
+                        </div>
+                        <div class="card-decoration">
+                            <div class="deco-circle"></div>
+                            <div class="deco-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Policy Research -->
+                    <div class="expertise-card card-policy" data-parallax-speed="1.6">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class='bx bx-book-open'></i>
+                            </div>
+                            <div class="card-header">
+                                <h3>Policy Research</h3>
+                                <span class="card-badge">Impact</span>
+                            </div>
+                            <p class="card-description">
+                                Conducting rigorous research that translates theoretical frameworks 
+                                into practical policy recommendations for social development.
+                            </p>
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <span class="stat-icon">≈</span>
+                                    <span class="stat-text">Causal Inference</span>
+                                </div>
+                                <div class="card-stat">
+                                    <span class="stat-icon">μ</span>
+                                    <span class="stat-text">Impact Evaluation</span>
+                                </div>
+                            </div>
+                            <div class="card-tech">
+                                <span class="tech-tag">RCT</span>
+                                <span class="tech-tag">DiD</span>
+                                <span class="tech-tag">IV Methods</span>
+                            </div>
+                        </div>
+                        <div class="card-decoration">
+                            <div class="deco-circle"></div>
+                            <div class="deco-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="track-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-dots">
+                        <span class="dot active" data-card="0"></span>
+                        <span class="dot" data-card="1"></span>
+                        <span class="dot" data-card="2"></span>
+                        <span class="dot" data-card="3"></span>
+                    </div>
+                </div>
+
+                <!-- Floating Elements -->
+                <div class="floating-elements">
+                    <div class="float-element element-1">∑</div>
+                    <div class="float-element element-2">∫</div>
+                    <div class="float-element element-3">π</div>
+                    <div class="float-element element-4">λ</div>
+                    <div class="float-element element-5">σ</div>
+                    <div class="float-element element-6">∂</div>
+                </div>
             </div>
         </section>
-
+            </div>
+        </section>
         
-        <section id="Skills">
-            <h1 class="subtitle">My <span>Skills</span></h1>
-            <div class="sec">
-                <div class="container1">
-                    <h1 class="heading1">Technical Skills</h1>
-                    <div class="Technical-bars">
-
-                        <div class="bar"></i><i class='bx bxl-microsoft' style="color: #eb3b00;"></i> <i class='bx bx-file' style="color: #0074c7;"></i> <i class='bx bx-spreadsheet' style="color: #0a6f43;"></i>
-                            <div class="info">
-                                <span>Microsoft Office<span class="addhtml"></span></span>
-                            </div>
-                            <div class="progress-line html">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bxl-google' style="color: #ea4335;"></i> <i class='bx bxl-gmail' style="color: #fbbc04;"></i>
-                            <div class="info">
-                                <span>Google Workspace<span class="addcss"></span></span>
-                            </div>
-                            <div class="progress-line css">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bx-palette' style="color: #B839D3;"></i> <i class='bx bx-vector' style="color: #b0bc1e;"></i>
-                            <div class="info">
-                                <span>Graphic Designing<span class="addpy"></span></span>
-                            </div>
-                            <div class="progress-line python">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"> <i class="fa-solid fa-arrow-trend-up fa-sm" style="color: #ed4c07;"></i> <i class='bx bx-data' style="color: #c95d2e;"></i> <i class='bx bx-stats' style="color: #c95d2e;"></i> <i class='bx bxl-python' style="color: #b0bc1e;"></i>
-                            <div class="info">
-                                <span>R/Stata/Python<span class="addjava"></span></span>
-                            </div>
-                            <div class="progress-line java">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"> <i class='bx bxl-html5'style="color: #e34c26;"></i> <i class='bx bxl-css3'style="color: #1b73ba;"></i> <i class='bx bxl-javascript'style="color: #e4a228;"></i> <i class='bx bxl-wordpress'style="color: #0f8cc4;"></i>
-                            <div class="info">
-                                <span>HTML/CSS/JS/Wordpress<span class="addc"></span></span>
-                            </div>
-                            <div class="progress-line cpls">
-                                <span></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="container2">
-                    <h1 class="heading1">Professional Skills</h1>
-                    <div class="radial-bars">
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-1" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">60%</div>
-                            <div class="text">Problem Solving</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-2" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">70%</div>
-                            <div class="text">Creativity</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-3" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">80%</div>
-                            <div class="text">Communication</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-4" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">90%</div>
-                            <div class="text">Teamwork</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Projects">
-            <div id="portfolio" class="services">
-                <div class="main-text" id="serv">
-                    <h2>My <span>Projects</span></h2>
-                    <p class="about-text"; style="max-width: 1050px; margin: 0 auto; text-align: center; margin-bottom: 20px; margin-top: -30px;">
-                        This section highlights some of my previous work that best showcases my skills and expertise. You'll find examples of in-depth policy research and analysis, data-driven projects tapping into my quantitative abilities, as well as writing samples that demonstrate my aptitude for conveying complex ideas clearly and engagingly. Through this curated collection, I aim to provide you with a well-rounded understanding of the kinds of challenges I enjoy taking on and the caliber of solutions I can deliver.</p>
-                    <div class="serv-container">
-                        <div class="row">
-                            <img src="./img/AI.png">
-                            <div class="layer">
-                                <h5>AI and Academic Integrity</h5>
-                                <p>Developing policy frameworks for Artificial Intelligence in academia to uphold integrity and accountability</p>
-
-                                <a href="#"><i class='bx bx-book-reader' style="color: aliceblue;"></i></a>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <img src="./img/Thekkinkadu.png">
-                            <div class="layer">
-                                <h5>Religion and Commerce</h5>
-                                <p>Unveiling the symbiotic bond between religion and commerce through ethnography in a sacred setting</p>
-                                <a href="https://drive.google.com/file/d/1GcTtzCbo_JynDz5rnSpgC-X8WI_2kE92/view?usp=sharing" target="blank"><i class='bx bx-church' style="color: aliceblue;"></i></a>
-                                
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <img src="./img/princely states.png">
-                            <div class="layer">
-                                <h5>Modernity in Princely States</h5>
-                                <p>Exploring the socio-economic and political evolution of princely states of Travancore and Mysore on their path to modernity.</p>
-
-                                <a href="https://drive.google.com/file/d/1vW4hjD9t-qovautILDtR78ojg2lVY86F/view?usp=sharing" target="blank"><i class="bx bx-crown" style="color: aliceblue;"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Services">
-            <div class="project">
-                <div class="container">
-                    <h1 class="sub-title">My <span>Expertise</span></h1>
-                    <div class="prj-list">
-                        <div>
-                            <i class='bx bx-code' style="color: color: background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-                            -webkit-background-clip: text;
-                            -moz-background-clip: text;
-                            background-clip: text;
-                            -webkit-text-fill-color: transparent;"></i>
-                            <h2>Polciy Analysis</h2>
-                            <p>Meticulously analyze policies, skillfully uncovering insights to craft impactful solutions.</p>
-                            
-                        </div>
-                        <div>
-                            <i class='bx bx-line-chart' style="color: color: background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-                            -webkit-background-clip: text;
-                            -moz-background-clip: text;
-                            background-clip: text;
-                            -webkit-text-fill-color: transparent;"></i>
-                            <h2>Data Analysis</h2>
-                            <p>Proficient in analyzing complex datasets with a keen eye for patterns and insights, and eager to expand expertise in R & Stata for enhanced statistical analysis</p>
-                            
-                        </div>
-                        <div>
-                            <i class='bx bx-analyse' style="color: background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-                            background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-                            -webkit-background-clip: text;
-                            -moz-background-clip: text;
-                            background-clip: text;
-                            -webkit-text-fill-color: transparent;"></i>
-                            <h2>Policy Consulting</h2>
-                            <p>Skilled in providing insightful policy guidance backed by data analysis, eager to expand expertise for greater impact</p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="contacts" id="Contact">
-            <div class="contact-text">
-                <h2>Contact <span>Me</span></h2>                
-                <div class="contact-list">
-                    <li><i class='bx bxs-send'></i>abhishek7pathirickal@gmail.com</li>
-                    <li><i class="bx bxs-phone-call" ></i>+91 91881 72998</li>
-                </div>
-                <div class="contact-icons">
-                    <a href="https://github.com/AbhishekPathirickal" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="https://www.linkedin.com/in/abhishekpathirickal" target="_blank"><i class="bx bxl-linkedin"></i></a>
-                </div>
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer">
+            <div class="footer-bg-animation">
+                <span class="float-symbol">∑</span>
+                <span class="float-symbol">∫</span>
+                <span class="float-symbol">π</span>
+                <span class="float-symbol">β</span>
+                <span class="float-symbol">λ</span>
+                <span class="float-symbol">∂</span>
+                <span class="float-symbol">≈</span>
+                <span class="float-symbol">±</span>
+                <span class="float-symbol">∞</span>
+                <span class="float-symbol">≠</span>
+                <span class="float-symbol">≤</span>
+                <span class="float-symbol">≥</span>
+                <span class="float-symbol">α</span>
+                <span class="float-symbol">σ</span>
+                <span class="float-symbol">μ</span>
+                <span class="float-symbol">Δ</span>
+                <span class="float-symbol">∇</span>
+                <span class="float-symbol">√</span>
+                <span class="float-symbol">∏</span>
+                <span class="float-symbol">∈</span>
             </div>
             
-        </section>
+            <div class="footer-content">
+                <div class="footer-top">
+                    <div class="footer-about">
+                        <h3 class="footer-logo">Abhishek P T</h3>
+                        <p>Policy Analyst | Data Scientist | Development Economics Researcher</p>
+                        <div class="footer-stats">
+                            <div class="stat-item">
+                                <i class='bx bx-code-alt'></i>
+                                <span>R • Stata • Python</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class='bx bx-line-chart'></i>
+                                <span>Econometrics • Statistics</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class='bx bx-analyse'></i>
+                                <span>Policy Research</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html"><i class='bx bx-chevron-right'></i> Home</a></li>
+                            <li><a href="about.html"><i class='bx bx-chevron-right'></i> About</a></li>
+                            <li><a href="skills.html"><i class='bx bx-chevron-right'></i> Skills</a></li>
+                            <li><a href="projects.html"><i class='bx bx-chevron-right'></i> Projects</a></li>
+                            <li><a href="contact.html"><i class='bx bx-chevron-right'></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-expertise">
+                        <h4>Expertise</h4>
+                        <ul>
+                            <li><i class='bx bx-check-circle'></i> Development Economics</li>
+                            <li><i class='bx bx-check-circle'></i> Policy Analysis</li>
+                            <li><i class='bx bx-check-circle'></i> Data Science</li>
+                            <li><i class='bx bx-check-circle'></i> Econometric Modeling</li>
+                            <li><i class='bx bx-check-circle'></i> Statistical Research</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class='bx bxs-envelope'></i>
+                            <a href="mailto:abhishek7pathirickal@gmail.com">abhishek7pathirickal@gmail.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class='bx bxs-phone'></i>
+                            <span>+91 91881 72998</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class='bx bxs-map'></i>
+                            <span>IIT Madras, Chennai</span>
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/abhishekpathirickal/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                            <a href="https://github.com/AbhishekPathirickal" target="_blank"><i class='bx bxl-github'></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-divider"></div>
+                
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        <i class='bx bx-copyright'></i> <span id="current-year"></span> Abhishek P T. Crafted with 
+                        <i class='bx bxs-heart pulse-heart'></i> and 
+                        <i class='bx bxs-coffee-togo'></i>
+                    </p>
+                    <div class="footer-impact">
+                        <div class="impact-item" data-impact="policy">
+                            <i class='bx bx-line-chart-down'></i>
+                            <span>Reducing Inequality</span>
+                        </div>
+                        <div class="impact-item" data-impact="data">
+                            <i class='bx bx-data'></i>
+                            <span>Data-Driven Insights</span>
+                        </div>
+                        <div class="impact-item" data-impact="research">
+                            <i class='bx bx-book-open'></i>
+                            <span>Evidence-Based Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         
-        <div class="last-text">
-            <p>Developed by Abhishek <i class='bx bx-copyright' style="color: white;"></i> 2024</p>
-        </div>
-        <a href="#Home" class="top"><i class='bx bx-up-arrow-alt' ></i></a>
+        <a href="#Home" class="top"><i class='bx bx-up-arrow-alt'></i></a>
 
         <script src="./files/script.js"></script>
     </body>  
