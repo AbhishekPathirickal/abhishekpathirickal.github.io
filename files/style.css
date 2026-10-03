@@ -5774,6 +5774,12 @@ body a:not(.logo):not(.nav-link):not(.project-link-btn):not(.hero-btn):hover { c
     .expertise-showcase .expertise-card { min-height: 0; }
 }
 
+/* Keep the light-theme title gradient distinct from its navy body text. */
+[data-theme="light"] .expertise-header .animated-fill {
+    background: linear-gradient(110deg, #0b3266 0%, #295e8d 55%, #365a78 100%);
+    background-size: 100% 100% !important;
+}
+
 .hdi-project-art {
     position: relative;
     display: flex;
