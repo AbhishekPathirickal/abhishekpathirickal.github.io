@@ -15,53 +15,44 @@ const mobileToggle = document.getElementById('mobile-toggle');
 const navbar = document.querySelector('.navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Keep a CSS variable with the current header height so mobile nav positions correctly
-const updateHeaderHeight = () => {
-    const h = header ? header.offsetHeight : 70;
-    document.documentElement.style.setProperty('--header-height', `${h}px`);
-    if (navbar) {
-        navbar.style.height = `calc(100vh - ${h}px)`;
-    }
+// Mobile navigation: keep the drawer, button state and page scroll in sync.
+const setMenuOpen = (open) => {
+    mobileToggle?.classList.toggle('active', open);
+    navbar?.classList.toggle('active', open);
+    document.body.classList.toggle('menu-open', open && window.innerWidth <= 900);
+    mobileToggle?.setAttribute('aria-expanded', String(open));
 };
 
-window.addEventListener('load', updateHeaderHeight);
-window.addEventListener('resize', updateHeaderHeight);
-window.addEventListener('scroll', updateHeaderHeight);
-
-// Mobile menu toggle
 mobileToggle?.addEventListener('click', () => {
-    mobileToggle.classList.toggle('active');
-    navbar.classList.toggle('active');
-    
-    // ensure CSS var updates in case header shrank/expanded
-    updateHeaderHeight();
-    // Animate toggle
-    anime({
-        targets: mobileToggle,
-        rotate: mobileToggle.classList.contains('active') ? 90 : 0,
-        duration: 300,
-        easing: 'easeInOutQuad'
-    });
+    setMenuOpen(!navbar?.classList.contains('active'));
 });
 
 // Close mobile menu when clicking nav links
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            mobileToggle?.classList.remove('active');
-            navbar.classList.remove('active');
-        }
+        if (window.innerWidth <= 900) setMenuOpen(false);
     });
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 900) {
         if (!navbar.contains(e.target) && !mobileToggle?.contains(e.target)) {
-            mobileToggle?.classList.remove('active');
-            navbar.classList.remove('active');
+            setMenuOpen(false);
         }
     }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setMenuOpen(false);
+    document.documentElement.style.setProperty('--header-height', `${header?.offsetHeight || 68}px`);
+});
+window.addEventListener('load', () => {
+    document.documentElement.style.setProperty('--header-height', `${header?.offsetHeight || 68}px`);
 });
 
 // Navbar scroll effect
@@ -610,17 +601,11 @@ const initExpertiseParallax = () => {
     const expertiseSection = document.querySelector('.expertise-showcase');
     if (!expertiseSection) return;
 
-    const cards = expertiseSection.querySelectorAll('.expertise-card');
-    const progressFill = expertiseSection.querySelector('.progress-fill');
-    const progressDots = expertiseSection.querySelectorAll('.dot');
     const animatedFills = expertiseSection.querySelectorAll('.animated-fill');
 
     let ticking = false;
 
     const updateExpertiseShowcase = () => {
-        const sectionTop = expertiseSection.offsetTop;
-        const sectionHeight = expertiseSection.offsetHeight;
-        const scrolled = window.pageYOffset;
         const windowHeight = window.innerHeight;
 
         const headerElement = expertiseSection.querySelector('.expertise-header');
@@ -643,37 +628,6 @@ const initExpertiseParallax = () => {
             });
         }
 
-        if (scrolled + windowHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
-            const sectionProgress = Math.max(0, Math.min(1, (scrolled + windowHeight - sectionTop) / (sectionHeight + windowHeight)));
-
-            cards.forEach((card, index) => {
-                const cardRect = card.getBoundingClientRect();
-                const revealPoint = windowHeight * 0.88;
-                const visibleAmount = Math.max(0, Math.min(1, (revealPoint - cardRect.top) / 180));
-                card.style.transform = `translateY(${(1 - visibleAmount) * 18}px)`;
-                card.style.opacity = Math.max(0.72, visibleAmount);
-                card.style.transitionDelay = `${index * 40}ms`;
-            });
-
-            if (progressFill) {
-                progressFill.style.width = `${sectionProgress * 100}%`;
-            }
-
-            if (progressDots.length > 0) {
-                const activeIndex = Math.min(
-                    progressDots.length - 1,
-                    Math.max(0, Math.floor(sectionProgress * progressDots.length))
-                );
-                progressDots.forEach((dot, index) => {
-                    if (index === activeIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-        }
-
         ticking = false;
     };
 
@@ -687,32 +641,7 @@ const initExpertiseParallax = () => {
     window.addEventListener('scroll', requestExpertiseUpdate, { passive: true });
     window.addEventListener('resize', requestExpertiseUpdate);
 
-    cards.forEach((card) => {
-        card.style.transform = 'translateY(18px)';
-        card.style.opacity = '0.72';
-    });
-
-    // center first card visually on load for a tighter carousel feel
-    const track = expertiseSection.querySelector('.expertise-track');
-    if (track && cards.length) {
-        const first = cards[0];
-        const centerScroll = Math.max(0, first.offsetLeft - (window.innerWidth / 2) + (first.offsetWidth / 2));
-        track.scrollTo({ left: centerScroll, behavior: 'smooth' });
-    }
-
     updateExpertiseShowcase();
-
-    progressDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const targetProgress = index / (progressDots.length - 1);
-            const targetScroll = expertiseSection.offsetTop + (targetProgress * expertiseSection.offsetHeight);
-            
-            window.scrollTo({
-                top: targetScroll - (window.innerHeight / 2),
-                behavior: 'smooth'
-            });
-        });
-    });
 };
 
 // Initialize expertise parallax when DOM is ready
