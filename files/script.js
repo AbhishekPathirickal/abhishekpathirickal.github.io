@@ -423,23 +423,29 @@ document.querySelectorAll('.navbar a').forEach(link => {
 });
 
 if (isHomePage) {
-    const sectionObserver = new IntersectionObserver((entries) => {
-        const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    let activeHomeSection = '';
+    const updateHomeActiveSection = () => {
+        const activationLine = (header?.offsetHeight || 0) + window.innerHeight * 0.35;
+        let currentSection = 'Home';
 
-        if (visible) {
-            setActiveNavLink(`#${visible.target.id}`);
+        homeSections.slice(1).forEach(id => {
+            const section = document.getElementById(id);
+            if (section && section.getBoundingClientRect().top <= activationLine) {
+                currentSection = id;
+            }
+        });
+
+        if (currentSection !== activeHomeSection) {
+            activeHomeSection = currentSection;
+            setActiveNavLink(`#${currentSection}`);
         }
-    }, {
-        threshold: [0.25, 0.45, 0.65],
-        rootMargin: '-25% 0px -45% 0px'
-    });
+    };
 
-    homeSections.forEach(id => {
-        const section = document.getElementById(id);
-        if (section) sectionObserver.observe(section);
-    });
+    window.addEventListener('scroll', updateHomeActiveSection, { passive: true });
+    window.addEventListener('resize', updateHomeActiveSection);
+    window.addEventListener('hashchange', updateHomeActiveSection);
+    window.addEventListener('load', updateHomeActiveSection);
+    updateHomeActiveSection();
 }
 
 // ========== PAGE TRANSITION ANIMATION ==========
