@@ -5926,11 +5926,24 @@ h1, h2, h3, h4, h5, h6 { letter-spacing: -.025em; }
    keep every destination readable without horizontal or vertical scrolling. */
 @media (max-width: 900px) {
     .header {
+        display: flex !important;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
         min-height: 64px;
         padding: 9px 16px;
     }
+    .header > .logo {
+        position: static;
+        text-align: left;
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+    .header > .logo::after,
+    .navbar .nav-link::after { content: none !important; }
+    .logo-tagline { display: none !important; }
     .header.scrolled { padding: 8px 16px; }
-    .header-actions { flex-shrink: 0; }
+    .header-actions { display: flex; flex: 0 0 auto; flex-shrink: 0; }
     .mobile-menu-toggle {
         display: flex;
         align-items: center;
@@ -5939,19 +5952,44 @@ h1, h2, h3, h4, h5, h6 { letter-spacing: -.025em; }
         min-height: 44px;
     }
     .navbar {
-        inset: var(--header-height, 64px) 0 auto auto;
+        position: fixed !important;
+        top: var(--header-height, 64px);
+        right: 0;
+        bottom: 0;
+        left: auto;
         width: min(100vw, 360px);
-        max-height: calc(100dvh - var(--header-height, 64px));
-        overflow: hidden;
+        height: calc(100dvh - var(--header-height, 64px));
+        max-height: none;
+        overflow-y: auto;
+        overflow-x: hidden;
         padding: 14px;
         gap: 4px;
         transform: translateX(100%);
+        z-index: 11000 !important;
     }
-    .navbar.active { transform: translateX(0); }
+    .navbar.active {
+        right: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        pointer-events: auto !important;
+    }
     .navbar .nav-link {
+        display: flex;
         min-height: 48px;
         white-space: nowrap;
         flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar .nav-link::after { display: none !important; }
+    .top,
+    .top.active {
+        right: 16px !important;
+        left: auto !important;
+        bottom: 18px !important;
+        z-index: 999 !important;
     }
 }
 
